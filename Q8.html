@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Q8</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function() {
+            $("#category").change(function() {
+                var val = $(this).val();
+                if (val === "all") {
+                    $(".job").show();
+                }
+                else {
+                    $(".job").hide();
+                    $("."+val).show();
+                }
+            });
+        });
+    </script>
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        label {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        #category {
+            padding: 5px;
+            font-size: 16px;
+        }
+        .job {
+            border: 1px solid #ccc;
+            background-color: #fff;
+            margin-bottom: 10px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Job Listing</h1>
+    <label for="category">Filter By Category : </label>
+    <select id="category">
+        <option value="all">-All-</option>
+        <option value="developer">Development</option>
+        <option value="management">Management</option>
+        <option value="teaching">Teaching</option>
+    </select>
+    <div id="job">
+        <div class="job developer">Java Developer - VersaQuest</div>
+        <div class="job teaching">Java Teacher - Brainlab Tech</div>
+        <div class="job management">Account Manager - WCF Limited</div>
+        <div class="job teaching">Chess Trainer - WCF Limited</div>
+        <div class="job developer">iOS Developer - VersaQuest</div>
+        <div class="job developer">Flutter Developer - Brainlab Tech</div>
+        <div class="job management">Schedule Manager - VersaQuest</div>
+        <div class="job teaching">Student Assistant - Brainlab Tech</div>
+        <div class="job developer">Software Developer - VersaQuest</div>
+        <div class="job management">Service Manager - Brainlab Tech</div>
+        <div class="job management">Head Manager - VersaQuest</div>
+    </div>
+</body>
+</html>

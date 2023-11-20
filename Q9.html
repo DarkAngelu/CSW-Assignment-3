@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q9</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function() {
+            var a=["Rock","Paper","Scissor"];
+            if(!localStorage.player1 && !localStorage.player2) {
+                localStorage.setItem("player1",0);
+                localStorage.setItem("player2",0);
+            }
+            else {
+                $(".player1").text(localStorage.getItem("player1"));
+                $(".player2").text(localStorage.getItem("player2"));
+            }
+
+            $("button").click(function(){
+                var comp=a[Math.floor((Math.random()*3))];
+                var user=$("select").val();
+                // console.log(comp+"  "+user);
+                
+                $(".cmp").text(comp);
+                switch(user) {
+                    case "Rock":
+                        switch(comp){
+                            case "Rock":
+                                $(".score").text("Draw");
+                                break;
+                            case "Scissor":
+                                $(".score").text("User Wins");
+                                localStorage.setItem("player1", Number(localStorage.getItem("player1"))+1);
+                                $(".player1").text(localStorage.getItem("player1"));
+                                break;
+                            case "Paper":
+                                $(".score").text("Computer Wins");
+                                localStorage.setItem("player2", Number(localStorage.getItem("player2"))+1);
+                                $(".player2").text(localStorage.getItem("player2"));
+                        }
+                        break;
+                    case "Scissor":
+                        switch(comp){
+                            case "Rock":
+                                $(".score").text("Computer Wins");
+                                localStorage.setItem("player2", Number(localStorage.getItem("player2"))+1);
+                                $(".player2").text(localStorage.getItem("player2"));
+                                break;
+                            case "Scissor":
+                                $(".score").text("Draw");
+                                break;
+                            case "Paper":
+                                $(".score").text("User Wins");
+                                localStorage.setItem("player1", Number(localStorage.getItem("player1"))+1);
+                                $(".player1").text(localStorage.getItem("player1"));
+                        }
+                        break;
+                    case "Paper":
+                        switch(comp){
+                            case "Rock":
+                                $(".score").text("User Wins");
+                                localStorage.setItem("player1", Number(localStorage.getItem("player1"))+1);
+                                $(".player1").text(localStorage.getItem("player1"));
+                                break;
+                            case "Scissor":
+                                $(".score").text("Computer Wins");
+                                localStorage.setItem("player2",Number(localStorage.getItem("player2"))+1);
+                                $(".player2").text(localStorage.getItem("player2"));
+                                break;
+                            case "Paper":
+                                $(".score").text("Draw");
+                        }
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div>
+        <div>Rock paper Sissor Game</div>
+        <div>
+            <div class="player1"> </div>
+            <div class="player2"> </div>
+        </div>
+    </div>
+    <p class="score">Score Card</p>
+<div>
+    <select name="player" id="#user">
+        <option value="Rock">Rock</option>
+        <option value="Paper">Paper</option>
+        <option value="Scissor">Scissor</option>
+    </select>
+    <button>Play</button>
+    <div>
+        <p>Computer Picked</p>
+        <p class="cmp"></p>
+    </div>
+</div>
+</body>
+</html>

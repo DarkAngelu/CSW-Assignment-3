@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Q7</title>
+  <script>
+    function validateForm() {
+      var name = document.forms["signupForm"]["name"].value;
+      var dob = document.forms["signupForm"]["dob"].value;
+      var city = document.forms["signupForm"]["city"].value;
+      var email = document.forms["signupForm"]["email"].value;
+
+      if (name == null || name === "") {
+        alert("Please enter your name.");
+        return false;
+      }
+
+      if (dob == null || dob === "") {
+        alert("Please enter your date of birth.");
+        return false;
+      }
+
+      if (city == null || city === "") {
+        alert("Please enter your city.");
+        return false;
+      }
+
+      if (email == null || email === "") {
+        alert("Please enter your email address.");
+        return false;
+      }
+      
+      var emailFormat = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!email.match(emailFormat)) {
+        alert("Please enter a valid email address.");
+        return false;
+      }
+
+      return true;
+    }
+  </script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+
+    form {
+      max-width: 400px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+
+    /* Optional: Style for error messages */
+    .error {
+      color: red;
+      font-size: 0.9em;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <form name="signupForm" onsubmit="return validateForm()">
+    <input type="text" name="name" placeholder="Enter your name" required><br><br>
+    <input type="date" name="dob" required><br><br>
+    <input type="text" name="city" placeholder="Enter your city" required><br><br>
+    <input type="email" name="email" placeholder="Enter your email" required><br><br>
+    <input type="submit" value="Submit">
+  </form>
+</body>
+</html>

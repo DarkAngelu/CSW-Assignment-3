@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Q2</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function() {
+            $("#single").click(function() {
+                (this).append(" CLICKED ");
+            });
+            $("#double").dblclick(function() {
+                (this).append(" DOUBLE-CLICKED ");
+            });
+        });
+    </script>
+</head>
+<body>
+    <p id="single">Click Me Once!</p>
+    <p id="double">Click Me Twice!</p>
+</body> 
+</html>

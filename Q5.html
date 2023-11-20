@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Q5</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function(){
+          $(".box").slideDown(1500);
+          $(".box").animate({
+            opacity: '0.5',
+            width: '+=50px',
+            height: '+=50px'
+          }, 1500 );
+          $(".box").fadeIn(1500);
+          $(".box").hide(1500);
+          $(".box").show(1500);
+          $(".box").mouseenter(function(){
+            $(this).css("background-color", "pink");
+          });
+          $(".box").dblclick(function(){
+            $(this).html("Double Clicked!");
+          });
+          $(".box").mouseleave(function(){
+            $(this).css("background-color", "#ccc");
+          });
+          $(".box").attr("title", "This is a box!");
+          $(".box").html("Initial Text");
+        });
+      </script>
+      <style>
+        .box {
+          width: 200px;
+          height: 200px;
+          background-color: #ccc;
+          margin: 20px;
+          display: none;
+        }
+      </style>
+</head>
+<body>
+    <div class="box">Box</div>
+</body>
+</html>
